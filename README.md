@@ -1,3 +1,29 @@
+## s390x Fork Notes
+
+This fork tracks upstream on `master` and keeps active IBM Z / LinuxONE (`s390x`, big-endian) enablement work in dedicated `k8ika0s/s390x-*` branches.
+
+### Highlights
+- Fork-local s390x remediation and validation work for this project is maintained under `k8ika0s/s390x-remediate`.
+- Changes are intentionally architecture-scoped to avoid regressions on amd64/arm64.
+- Mainline syncs happen in this fork only; no upstream push/PR is performed from this flow.
+
+### Requirements
+- Linux host on `s390x` (RHEL/Ubuntu recommended) with `git`.
+- Rust toolchain and project dependencies required by this repository.
+- Docker/Podman if using containerized build workflows.
+
+### Quick Start on s390x
+```bash
+git clone https://github.com/k8ika0s/ztunnel-s390x.git
+cd ztunnel-s390x
+git checkout master
+git checkout k8ika0s/s390x-remediate
+BUILD_WITH_CONTAINER=1 make rust-version
+cargo build
+```
+
+---
+
 # Ztunnel
 
 Ztunnel provides an implementation of the ztunnel component of
