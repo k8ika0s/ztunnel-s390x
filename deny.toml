@@ -3,6 +3,7 @@
 targets = [
     { triple = "x86_64-unknown-linux-gnu" },
     { triple = "aarch64-unknown-linux-gnu" },
+    { triple = "s390x-unknown-linux-gnu" },
 ]
 features = ["tls-boring", "tls-ring", "tls-aws-lc", "tls-openssl" ]
 

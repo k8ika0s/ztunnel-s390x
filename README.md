@@ -29,6 +29,24 @@ cargo build
 Ztunnel provides an implementation of the ztunnel component of
 [ambient mesh](https://istio.io/latest/blog/2022/introducing-ambient-mesh/).
 
+## s390x (zLinux) Fork Status
+
+This fork (`k8ika0s/ztunnel-s390x`) carries minimal changes required for
+reproducible zLinux (`linux/s390x`) builds.
+
+### Highlights
+
+- `scripts/release.sh` now recognizes `s390x` and maps it to `ARCH=s390x`.
+- `deny.toml` includes `s390x-unknown-linux-gnu` in cargo-deny target checks.
+- `TLS_MODE=boring` is now explicitly blocked on unsupported architectures
+  (vendored FIPS artifacts are only available for `amd64` and `arm64`).
+
+### Quick Build
+
+```bash
+TLS_MODE=aws-lc ./scripts/release.sh
+```
+
 ## Feature Scope
 
 Ztunnel is intended to be a purpose built implementation of the node proxy in [ambient mesh](https://istio.io/latest/blog/2022/introducing-ambient-mesh/).
